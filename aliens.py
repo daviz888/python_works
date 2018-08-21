@@ -16,15 +16,20 @@ screen.clear()
 aliens = []
 
 # Make 30 aliens.
-for alien_number in range(30):
+for alien_number in range(0,30):
     new_alien = {'color': 'green', 'points': alien_number, 'speed': 'slow'}
     aliens.append(new_alien)
 
 # Show the first 5 aliens:
 print("First five aliens")
-for alien in aliens[:5]:
-    print(alien)
+for alien in aliens[0:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['speed'] = 'medium'
+        alien['points'] = 10
 
+for alien in aliens[0:5]:
+    print(alien)
 print("......\n")
 
 # Show how many aliens have been creaated.

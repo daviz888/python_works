@@ -2,21 +2,21 @@ import screen
 screen.clear()
 
 favorite_languages = {
-    'jen': 'python',
-    'sarah': 'c',
-    'edward': 'ruby',
-    'phil': 'python',
-    'dovvy': 'C#'
+    'jen': ['python', 'pascal', 'basic'],
+    'sarah': ['c', 'c++', 'c#', 'visual basic'],
+    'edward': ['ruby', 'perl', 'swift', 'python'],
+    'phil': ['python', 'php', 'java'],
+    'dovvy': ['C#', 'foxpro', 'swift', 'ms access', 'visual basic']
     }
 
-print("Sarah's favorite programming language is " + 
-    favorite_languages['sarah'].title() +
-    ".")
+print("Sarah's favorite programming language are: " + 
+    str(favorite_languages['sarah']) + ".")
 
 print("\nLooping keys & value in dictinaires:\n")
-for name, language in favorite_languages.items():
-    print(name.title() +"'s favorite language is " +
-        language.title() + ".")
+for name, languages in favorite_languages.items():
+    print(name.title() + "'s favorite language(s) are:")
+    for language in languages:
+        print("\t" + language.title())
 
 print("\nLooping through all keys in dictionary\n")
 
@@ -31,9 +31,10 @@ for name in favorite_languages:
     print(name.title())
 
     if name in friends:
-        print("\tHi " + name.title() + 
-            ", I see your favorite programming language is " +
-            favorite_languages[name].title() + "!")
+        print("-->Hi " + name.title() + 
+            ", I see your favorite programming language are: ")
+        for language in favorite_languages[name]:
+            print("\t" + language.title())
 
 print("\n")
 if 'erin' not in favorite_languages.keys():
@@ -48,5 +49,5 @@ for favorite_language in sorted(favorite_languages.keys()):
 print("\nLooping through all Values in a Dictionary")
 print("The following languages have been mentioned:")
 
-for language in set(favorite_languages.values()):
-    print("\t" + language.title())
+for language in favorite_languages.values():
+    print(language)
